@@ -8,5 +8,5 @@ size_t stdint_max_align_t();
 #include <stdio.h>
 int main(){
 	puts(stddef_max_align_t() == stdint_max_align_t() ? "SUCCESS: Your platform does not exhibit this bug." : "FAILURE: Your platform exhibits this bug.");
-	puts("Please report results back to https://github.com/rohlem/gcc-max_align_t-bug-repro/issues/1");
+	puts("Please report results (and the output of `gcc --version`) back to https://github.com/rohlem/gcc-max_align_t-bug-repro/issues/1");
 }
