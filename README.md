@@ -1,3 +1,5 @@
+(for follow-up to initial findings see [issue #2](https://github.com/rohlem/gcc-max_align_t-bug-repro/issues/2) )
+
 minimal reproducible example of header include order (of stddef.h and stdint.h) causing different results in alignment of max_align_t;
 
 first noticed on MinGW (mingw-builds "personal build" i686-8.1.0-release-posix-dwarf-rt_v6-rev0 from mingw-w64 SourceForge), it seems to only affect MinGW's setup with two separate include directories (therefore two distinct <stddef.h> files), and not be a GCC-wide (trunk) bug.
