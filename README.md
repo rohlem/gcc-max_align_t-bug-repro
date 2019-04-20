@@ -2,7 +2,7 @@
 
 minimal reproducible example of header include order (of stddef.h and stdint.h) causing different results in alignment of max_align_t;
 
-first noticed on MinGW (mingw-builds "personal build" i686-8.1.0-release-posix-dwarf-rt_v6-rev0 from mingw-w64 SourceForge), it seems to only affect MinGW's setup with two separate include directories (therefore two distinct <stddef.h> files), and not be a GCC-wide (trunk) bug.
+first noticed on MinGW (mingw-builds "personal build" i686-8.1.0-release-posix-dwarf-rt_v6-rev0 from mingw-w64 SourceForge), it seems to affect MinGW since major version 7, with two separate include directories (therefore two distinct <stddef.h> files).
 
 "check" scripts contain commands for building and running the test (reports result whether the bug was found to stdout)
 
@@ -32,4 +32,4 @@ The following is my current understanding of where the issue comes from, and wha
 	
 	This elicited a bug report and change from glibc to make their malloc 16 byte alligned as well: https://sourceware.org/bugzilla/show_bug.cgi?id=21120
 	
-	It really seems like this change just went unnoticed by mingw, so it really seems both stddef.h and the malloc implementation "just" need to be updated by someone who knows where and how to do so.
+	It really seems like this change just went unnoticed by mingw, so both stddef.h and the malloc implementation would to be updated by someone who knows where and how to do so (Update: because malloc comes from the Microsoft/Windows CRT however, that doesn't seem an option; see https://sourceforge.net/p/mingw-w64/bugs/779/ ).
